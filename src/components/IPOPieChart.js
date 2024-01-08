@@ -34,6 +34,7 @@ const IPOPieChart = ({ ipoData }) => {
   return (
     <div className="chart">
       <h2>Pie Chart - IPO Shares</h2>
+      <h2>--------------------</h2>
       <canvas id="ipoPieChart" width="400" height="400"></canvas>
     </div>
   );

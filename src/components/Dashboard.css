@@ -1,7 +1,66 @@
 .dashboard-container {
     max-width: 800px;
     margin: auto;
+
+    &.dark-mode {
+      background-color: #333; /* Dark background color */
+      color: #fff; /* Light text color */
+    }
   }
+
+  .app-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .toggle-button {
+    position: absolute;
+    top: 20px; /* Adjust the top position as needed */
+    right: 20px; /* Adjust the right position as needed */
+  }
+  
+  .sidebar {
+    width: 200px;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .sidebar button {
+    background-color: #fff;
+    color: #333;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+  }
+
+  /* Add this to your CSS or SCSS file */
+
+h1 {
+  text-align: center;
+  color: #2f1f3f;
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #9cd40e;
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(149, 235, 135, 0.263);
+}
+
   
   .currency-container {
     margin-top: 20px;
@@ -34,4 +93,48 @@
   .currency-rate {
     font-family: 'Courier New', Courier, monospace;
   }
+
+  .table-container {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
   
+  h2 {
+    color: #333;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    color: #333;
+  }
+  
+  tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* Add this to your Dashboard.css file */
+.light-mode table tbody tr {
+  background-color: #fff; /* Set your desired background color for light mode */
+  color: #333; /* Set your desired text color for light mode */
+}
+
+.dark-mode table tbody tr {
+  background-color: #333; /* Set your desired background color for dark mode */
+  color: #fff; /* Set your desired text color for dark mode */
+}

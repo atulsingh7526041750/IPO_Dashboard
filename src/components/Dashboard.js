@@ -3,10 +3,14 @@ import axios from 'axios';
 import IPOPieChart from './IPOPieChart';
 import IPOLineChart from './IPOLineChart';
 import IPOBarChart from './IPOBarChart'; 
+import './Dashboard.css'
+import Sidebar from './Sidebar';
 
 const Dashboard = () => {
   const [ipoData, setIpoData] = useState([]);
   const [currencyData, setCurrencyData] = useState([]);
+  const [darkMode, setDarkMode] = useState(false);
+  const [showDashboard, setShowDashboard] = useState(true);
 
   useEffect(() => {
     // Fetch IPO data
@@ -20,13 +24,30 @@ const Dashboard = () => {
       .catch(error => console.error('Error fetching currency data:', error));
   }, []);
 
+  
+  const toggleDarkMode = () => {
+    setDarkMode(prevMode => !prevMode);
+  };
+
+  
+  const toggleDashboard = () => {
+    setShowDashboard(prevShow => !prevShow);
+  };
+
   return (
-    <div className="dashboard-container">
-      <h1>Dashboard</h1>
+    <div className="app-container">
+      <Sidebar onToggleDashboard={toggleDashboard} />
+      {showDashboard && (
+        <div className={`dashboard-container ${darkMode ? 'dark-mode' : 'light-mode'}`}>
+      <h1> IPO DASHBOARD</h1>
+
+      <h1> --------------------</h1>
+
 
       {/* Tabular Data */}
       <div className="table-container">
         <h2>Upcoming IPOs</h2>
+        <h2>---------------</h2>
         <table>
           <thead>
             <tr>
@@ -49,12 +70,16 @@ const Dashboard = () => {
 
       {/* Currency Exchange Rates */}
       <div className="table-container">
+        
         <h2>Currency Exchange Rates</h2>
+           <h2>------------------</h2>
         <table>
           <thead>
             <tr>
               <th>Symbol</th>
               <th>Rate</th>
+              <th>Time Stamps</th>
+            
             </tr>
           </thead>
           <tbody>
@@ -62,6 +87,8 @@ const Dashboard = () => {
               <tr key={currency.symbol}>
                 <td>{currency.symbol}</td>
                 <td>{currency.rate}</td>
+                <td>{currency.timestamp}</td>
+               
               </tr>
             ))}
           </tbody>
@@ -75,7 +102,13 @@ const Dashboard = () => {
       <IPOLineChart ipoData={ipoData} />
 
       <IPOBarChart ipoData={ipoData} />
+
+      <button className="toggle-button" onClick={toggleDarkMode}>
+        {darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+      </button> 
     </div>
+      )}
+      </div>
   );
 };
 

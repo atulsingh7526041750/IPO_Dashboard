@@ -53,6 +53,7 @@ const IPOLineChart = ({ ipoData }) => {
   return (
     <div className="chart-container">
       <h2>Price Range Line Chart</h2>
+      <h2>----------------------</h2>
       <Line data={chartData} />
     </div>
   );
