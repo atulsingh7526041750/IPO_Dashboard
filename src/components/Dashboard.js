@@ -71,7 +71,7 @@ const Dashboard = () => {
       {/* Currency Exchange Rates */}
       <div className="table-container">
         
-        <h2>Currency Exchange Rates</h2>
+        <h2 style={{color:'black'}}>Currency Exchange Rates</h2>
            <h2>------------------</h2>
         <table>
           <thead>
